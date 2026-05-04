@@ -1,0 +1,1036 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.3">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="en"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;OERLive Monthly Article Tracker&lt;/title&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>* {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>box-sizing: border-box;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin: 0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-family: "Inter", "Segoe UI", Arial, sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>body {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>min-height: 100vh;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background:</p>
+<p class="p1"><span class="Apple-converted-space">        </span>radial-gradient(circle at top left, rgba(255, 0, 90, 0.18), transparent 28%),</p>
+<p class="p1"><span class="Apple-converted-space">        </span>radial-gradient(circle at bottom right, rgba(0, 170, 255, 0.20), transparent 30%),</p>
+<p class="p1"><span class="Apple-converted-space">        </span>linear-gradient(135deg, #07111f, #0b1729 45%, #050a12);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #ffffff;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 30px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.dashboard {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>max-width: 1300px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin: auto;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.top-header {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>justify-content: space-between;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gap: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 25px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.brand h1 {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 36px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing: -1.2px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 950;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.brand span {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #9fb3c8;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 15px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 6px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: block;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.date-box {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(255,255,255,0.08);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border: 1px solid rgba(255,255,255,0.12);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 14px 20px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 18px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>backdrop-filter: blur(18px);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-align: right;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>box-shadow: 0 15px 40px rgba(0,0,0,0.25);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.date-box strong {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: block;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 18px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.date-box small {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #9fb3c8;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.ticker-wrap {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>overflow: hidden;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 22px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 28px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: linear-gradient(90deg, #e30613, #ff6b00, #e30613);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>box-shadow: 0 15px 45px rgba(227, 6, 19, 0.25);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.ticker {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: inline-block;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>white-space: nowrap;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 15px 0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>animation: tickerMove 22s linear infinite;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 900;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 18px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing: 0.4px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.ticker span {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-right: 65px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>@keyframes tickerMove {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>from {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>transform: translateX(100%);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>to {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>transform: translateX(-100%);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.summary-grid {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: grid;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>grid-template-columns: 1.2fr 0.8fr;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gap: 22px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 25px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.panel {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(255,255,255,0.08);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border: 1px solid rgba(255,255,255,0.12);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 28px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 30px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>backdrop-filter: blur(18px);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>box-shadow: 0 20px 60px rgba(0,0,0,0.28);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.panel h2 {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #9fb3c8;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 16px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 500;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.main-total .number {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 80px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 950;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing: -4px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>line-height: 1;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.main-total p {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #c7d4e2;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 14px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 16px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.leader-name {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 34px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 950;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.leader-score {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #ffcc00;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 18px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 800;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.chart-panel {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 25px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.chart-header {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>justify-content: space-between;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gap: 15px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>flex-wrap: wrap;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.chart-header h2 {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #ffffff;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 22px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 900;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.month-badge {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #ffcc00;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(255, 204, 0, 0.10);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border: 1px solid rgba(255, 204, 0, 0.20);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 8px 14px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 999px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 800;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 14px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.bar-chart {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>flex-direction: column;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gap: 16px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.bar-row {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: grid;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>grid-template-columns: 160px 1fr 60px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gap: 14px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.bar-name {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 15px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #d8e5f3;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 750;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.bar-track {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>height: 18px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(255,255,255,0.10);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 999px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>overflow: hidden;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.bar-fill {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>height: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>width: 0%;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 999px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: linear-gradient(90deg, #e30613, #ffcc00);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>transition: width 0.5s ease;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.bar-value {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-align: right;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 900;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #ffffff;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.cards {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: grid;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>grid-template-columns: repeat(3, 1fr);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gap: 22px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 25px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.person-card {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>position: relative;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>overflow: hidden;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(255,255,255,0.08);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border: 1px solid rgba(255,255,255,0.12);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 28px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 25px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>backdrop-filter: blur(18px);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>box-shadow: 0 18px 55px rgba(0,0,0,0.25);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>transition: 0.3s ease;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.person-card:hover {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>transform: translateY(-5px);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-color: rgba(255,255,255,0.24);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.person-card::before {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>content: "";</p>
+<p class="p1"><span class="Apple-converted-space">      </span>position: absolute;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>width: 170px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>height: 170px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 50%;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>right: -55px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>top: -55px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(227, 6, 19, 0.24);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>filter: blur(5px);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.person-name,</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.article-count,</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.article-label,</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.mini-bar,</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.link-form,</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.links-section {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>position: relative;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>z-index: 2;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.person-name {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 24px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 900;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 18px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.article-count {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 60px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 950;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing: -2px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.article-label {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #9fb3c8;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 22px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.mini-bar {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>height: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(255,255,255,0.12);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 99px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>overflow: hidden;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.mini-bar-fill {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>height: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>width: 0%;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 99px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: linear-gradient(90deg, #e30613, #ffcc00);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>transition: width 0.4s ease;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.link-form {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gap: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 18px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>input,</p>
+<p class="p1"><span class="Apple-converted-space">    </span>select {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>flex: 1;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>min-width: 0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 12px 13px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 14px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border: 1px solid rgba(255,255,255,0.16);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(255,255,255,0.09);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: white;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>outline: none;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 14px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>select option {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: #0b1729;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #ffffff;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>input::placeholder {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: rgba(255,255,255,0.45);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>input:focus,</p>
+<p class="p1"><span class="Apple-converted-space">    </span>select:focus {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-color: rgba(255, 204, 0, 0.65);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>box-shadow: 0 0 0 3px rgba(255, 204, 0, 0.12);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>button {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border: none;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 14px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 11px 15px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 850;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: white;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(255,255,255,0.12);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border: 1px solid rgba(255,255,255,0.14);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>transition: 0.2s ease;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>white-space: nowrap;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>button:hover {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(255,255,255,0.22);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>transform: scale(1.03);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.submit-btn {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: #e30613;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-color: #e30613;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.submit-btn:hover {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: #ff1f2d;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.links-title {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #c7d4e2;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 14px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 700;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.story-list {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>flex-direction: column;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gap: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>max-height: 260px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>overflow-y: auto;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding-right: 4px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.story-item {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: grid;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>grid-template-columns: 1fr auto;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gap: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(0,0,0,0.20);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border: 1px solid rgba(255,255,255,0.10);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 14px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.story-item a {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #ffffff;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-decoration: none;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 13px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>overflow: hidden;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-overflow: ellipsis;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>white-space: nowrap;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.story-item a:hover {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #ffcc00;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-decoration: underline;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.delete-btn {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 7px 10px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #ffb3b3;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border: 1px solid rgba(255, 120, 120, 0.25);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(255, 0, 0, 0.08);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.empty-state {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: rgba(255,255,255,0.45);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 13px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(0,0,0,0.13);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 14px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border: 1px dashed rgba(255,255,255,0.12);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.history-section {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 25px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.history-header {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>justify-content: space-between;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gap: 15px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>flex-wrap: wrap;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.history-header h2 {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 24px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 950;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.history-layout {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: grid;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>grid-template-columns: 0.8fr 1.2fr;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gap: 22px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.month-list {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>flex-direction: column;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gap: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>max-height: 420px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>overflow-y: auto;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.month-item {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(0,0,0,0.18);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border: 1px solid rgba(255,255,255,0.10);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 16px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 14px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>transition: 0.2s ease;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.month-item:hover,</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.month-item.active {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-color: rgba(255, 204, 0, 0.45);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(255, 204, 0, 0.08);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.month-item strong {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: block;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 16px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 5px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.month-item small {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #9fb3c8;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.history-detail-title {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 900;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 15px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.history-note {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #9fb3c8;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 14px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>line-height: 1.5;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 18px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.toast {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>position: fixed;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>right: 25px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>bottom: 25px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(10, 18, 32, 0.92);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border: 1px solid rgba(255,255,255,0.16);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: white;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 14px 18px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 16px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>box-shadow: 0 20px 60px rgba(0,0,0,0.35);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>backdrop-filter: blur(18px);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: none;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>z-index: 50;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>@media (max-width: 1050px) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>.summary-grid,</p>
+<p class="p1"><span class="Apple-converted-space">      </span>.cards,</p>
+<p class="p1"><span class="Apple-converted-space">      </span>.history-layout {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>grid-template-columns: 1fr;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>.top-header {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>flex-direction: column;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>align-items: flex-start;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>.date-box {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>text-align: left;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>.main-total .number {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>font-size: 58px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>.link-form {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>flex-direction: column;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>.bar-row {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>grid-template-columns: 1fr;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>gap: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>.bar-value {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>text-align: left;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="dashboard"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="top-header"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="brand"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h1&gt;OERLive Monthly Article Tracker&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span&gt;Live newsroom publishing dashboard powered only by verified story links&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="date-box"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;strong id="todayDate"&gt;Today&lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;small id="liveTime"&gt;Live&lt;/small&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="ticker-wrap"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="ticker" id="tickerText"&gt;Loading ticker...&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="summary-grid"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="panel main-total"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h2&gt;Total Stories Published This Month&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="number" id="totalArticles"&gt;0&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p id="monthSummary"&gt;Count is calculated only from submitted OERLive story links.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="panel"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h2&gt;Top Contributor This Month&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="leader-name" id="leaderName"&gt;-&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="leader-score" id="leaderScore"&gt;0 stories&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="panel chart-panel"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="chart-header"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h2&gt;Current Month Bar Graph&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="month-badge" id="currentMonthBadge"&gt;Current Month&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="bar-chart" id="currentMonthChart"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="cards" id="cardsContainer"&gt;&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="panel history-section"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="history-header"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h2&gt;Monthly History Repository&lt;/h2&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;select id="historySelect" onchange="renderSelectedHistory()"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;option value=""&gt;Select a month&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/select&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="history-layout"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="month-list" id="monthList"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="history-detail-title" id="historyTitle"&gt;Select a month to view archive&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="bar-chart" id="historyChart"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="history-note" id="historyNote"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>When a new month begins, the previous month remains saved here automatically.</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="toast" id="toast"&gt;&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const people = [</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ name: "Alvin Thomas", key: "alvin" },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ name: "Mayank Singh", key: "mayank" },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ name: "Oommen John", key: "oommen" }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>];</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>const STORAGE_KEY = "oerliveMonthlyArticleRepositoryV1";</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>const defaultData = {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>months: {}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>let repository = JSON.parse(localStorage.getItem(STORAGE_KEY)) || defaultData;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function getCurrentMonthKey() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const now = new Date();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const year = now.getFullYear();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const month = String(now.getMonth() + 1).padStart(2, "0");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>return `${year}-${month}`;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function getMonthLabel(monthKey) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const [year, month] = monthKey.split("-");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const date = new Date(Number(year), Number(month) - 1, 1);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>return date.toLocaleDateString("en-GB", {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>month: "long",</p>
+<p class="p1"><span class="Apple-converted-space">        </span>year: "numeric"</p>
+<p class="p1"><span class="Apple-converted-space">      </span>});</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function createEmptyMonth() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>return {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>alvin: [],</p>
+<p class="p1"><span class="Apple-converted-space">        </span>mayank: [],</p>
+<p class="p1"><span class="Apple-converted-space">        </span>oommen: []</p>
+<p class="p1"><span class="Apple-converted-space">      </span>};</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function ensureCurrentMonthExists() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const currentMonth = getCurrentMonthKey();</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (!repository.months[currentMonth]) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>repository.months[currentMonth] = createEmptyMonth();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>saveRepository();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function getCurrentMonthData() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>ensureCurrentMonthExists();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>return repository.months[getCurrentMonthKey()];</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function saveRepository() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>localStorage.setItem(STORAGE_KEY, JSON.stringify(repository));</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function isValidUrl(value) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>try {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const url = new URL(value);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>return url.protocol === "http:" || url.protocol === "https:";</p>
+<p class="p1"><span class="Apple-converted-space">      </span>} catch {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>return false;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function normalizeUrl(value) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>return value.trim();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function getAllLinksAcrossRepository() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const allLinks = [];</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>Object.values(repository.months).forEach(monthData =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>people.forEach(person =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">          </span>monthData[person.key].forEach(link =&gt; allLinks.push(link.toLowerCase()));</p>
+<p class="p1"><span class="Apple-converted-space">        </span>});</p>
+<p class="p1"><span class="Apple-converted-space">      </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>return allLinks;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function showToast(message) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const toast = document.getElementById("toast");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>toast.textContent = message;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>toast.style.display = "block";</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>setTimeout(() =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>toast.style.display = "none";</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}, 2800);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function getLinkTitle(url) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>try {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const parsed = new URL(url);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let path = parsed.pathname</p>
+<p class="p1"><span class="Apple-converted-space">          </span>.replaceAll("/", " ")</p>
+<p class="p1"><span class="Apple-converted-space">          </span>.replaceAll("-", " ")</p>
+<p class="p1"><span class="Apple-converted-space">          </span>.replaceAll("_", " ")</p>
+<p class="p1"><span class="Apple-converted-space">          </span>.trim();</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (!path) {</p>
+<p class="p1"><span class="Apple-converted-space">          </span>return parsed.hostname;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>return path.length &gt; 72 ? path.substring(0, 72) + "..." : path;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>} catch {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>return url;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function getTotalForMonth(monthData) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>return people.reduce((sum, person) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>return sum + monthData[person.key].length;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}, 0);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function renderBarChart(containerId, monthData) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const container = document.getElementById(containerId);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const maxCount = Math.max(...people.map(person =&gt; monthData[person.key].length), 1);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>container.innerHTML = people.map(person =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const count = monthData[person.key].length;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const width = (count / maxCount) * 100;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>return `</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="bar-row"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="bar-name"&gt;${person.name}&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="bar-track"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div class="bar-fill" style="width: ${width}%"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="bar-value"&gt;${count}&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>`;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}).join("");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function renderCards() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const container = document.getElementById("cardsContainer");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const currentMonthData = getCurrentMonthData();</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>container.innerHTML = "";</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>const counts = people.map(person =&gt; currentMonthData[person.key].length);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const maxCount = Math.max(...counts, 1);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>people.forEach(person =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const links = currentMonthData[person.key];</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const count = links.length;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const percentage = (count / maxCount) * 100;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>const listHtml = links.length</p>
+<p class="p1"><span class="Apple-converted-space">          </span>? links.map((link, index) =&gt; `</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div class="story-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;a href="${link}" target="_blank" title="${link}"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                  </span>${index + 1}. ${getLinkTitle(link)}</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;button class="delete-btn" onclick="removeStory('${person.key}', ${index})"&gt;Remove&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>`).join("")</p>
+<p class="p1"><span class="Apple-converted-space">          </span>: `&lt;div class="empty-state"&gt;No story links added for this month yet.&lt;/div&gt;`;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>const card = document.createElement("div");</p>
+<p class="p1"><span class="Apple-converted-space">        </span>card.className = "person-card";</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>card.innerHTML = `</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="person-name"&gt;${person.name}&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="article-count"&gt;${count}&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="article-label"&gt;${count === 1 ? "Story Link This Month" : "Story Links This Month"}&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="mini-bar"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="mini-bar-fill" style="width: ${percentage}%"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="link-form"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;input</p>
+<p class="p1"><span class="Apple-converted-space">              </span>type="url"</p>
+<p class="p1"><span class="Apple-converted-space">              </span>id="input-${person.key}"</p>
+<p class="p1"><span class="Apple-converted-space">              </span>placeholder="Paste OERLive story link here"</p>
+<p class="p1"><span class="Apple-converted-space">              </span>onkeydown="handleEnter(event, '${person.key}')"</p>
+<p class="p1"><span class="Apple-converted-space">            </span>/&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button class="submit-btn" onclick="addStory('${person.key}')"&gt;Add Link&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="links-section"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="links-title"&gt;Stories posted by ${person.name}&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="story-list"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>${listHtml}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>`;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>container.appendChild(card);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>});</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function addStory(key) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const input = document.getElementById(`input-${key}`);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const link = normalizeUrl(input.value);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (!link) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>showToast("Please paste a story link first.");</p>
+<p class="p1"><span class="Apple-converted-space">        </span>return;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (!isValidUrl(link)) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>showToast("Please enter a valid URL beginning with http:// or https://");</p>
+<p class="p1"><span class="Apple-converted-space">        </span>return;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>const allLinks = getAllLinksAcrossRepository();</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (allLinks.includes(link.toLowerCase())) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>showToast("This story link has already been added.");</p>
+<p class="p1"><span class="Apple-converted-space">        </span>return;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>const currentMonthData = getCurrentMonthData();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>currentMonthData[key].push(link);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>input.value = "";</p>
+<p class="p1"><span class="Apple-converted-space">      </span>saveRepository();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>refreshDashboard();</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>showToast("Story link added. Monthly ticker updated.");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function removeStory(key, index) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const confirmRemove = confirm("Remove this story link from this month's count?");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (!confirmRemove) return;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>const currentMonthData = getCurrentMonthData();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>currentMonthData[key].splice(index, 1);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>saveRepository();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>refreshDashboard();</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>showToast("Story link removed. Monthly count updated.");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function handleEnter(event, key) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (event.key === "Enter") {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>addStory(key);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function updateSummary() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const currentMonth = getCurrentMonthKey();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const currentMonthData = getCurrentMonthData();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const total = getTotalForMonth(currentMonthData);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById("totalArticles").textContent = total;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById("currentMonthBadge").textContent = getMonthLabel(currentMonth);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById("monthSummary").textContent =</p>
+<p class="p1"><span class="Apple-converted-space">        </span>`${getMonthLabel(currentMonth)} publishing count, calculated only from submitted story links.`;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>let leader = people[0];</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>people.forEach(person =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (currentMonthData[person.key].length &gt; currentMonthData[leader.key].length) {</p>
+<p class="p1"><span class="Apple-converted-space">          </span>leader = person;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById("leaderName").textContent = total === 0 ? "-" : leader.name;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById("leaderScore").textContent =</p>
+<p class="p1"><span class="Apple-converted-space">        </span>total === 0</p>
+<p class="p1"><span class="Apple-converted-space">          </span>? "0 stories"</p>
+<p class="p1"><span class="Apple-converted-space">          </span>: `${currentMonthData[leader.key].length} ${currentMonthData[leader.key].length === 1 ? "story" : "stories"}`;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>updateTicker(total, currentMonthData);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>renderBarChart("currentMonthChart", currentMonthData);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function updateTicker(total, monthData) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const ticker = document.getElementById("tickerText");</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>ticker.innerHTML = `</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span&gt;OERLive Monthly Publishing Ticker&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span&gt;${getMonthLabel(getCurrentMonthKey())}&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span&gt;Total Verified Story Links: ${total}&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span&gt;Alvin Thomas: ${monthData.alvin.length}&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span&gt;Mayank Singh: ${monthData.mayank.length}&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span&gt;Oommen John: ${monthData.oommen.length}&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span&gt;Only submitted story links update the count&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>`;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function renderHistoryRepository() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const monthList = document.getElementById("monthList");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const historySelect = document.getElementById("historySelect");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const currentMonth = getCurrentMonthKey();</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>const monthKeys = Object.keys(repository.months)</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.sort()</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.reverse();</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>historySelect.innerHTML = `&lt;option value=""&gt;Select a month&lt;/option&gt;`;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>monthKeys.forEach(monthKey =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const option = document.createElement("option");</p>
+<p class="p1"><span class="Apple-converted-space">        </span>option.value = monthKey;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>option.textContent = monthKey === currentMonth</p>
+<p class="p1"><span class="Apple-converted-space">          </span>? `${getMonthLabel(monthKey)} - Current`</p>
+<p class="p1"><span class="Apple-converted-space">          </span>: getMonthLabel(monthKey);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>historySelect.appendChild(option);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>const archivedMonths = monthKeys.filter(monthKey =&gt; monthKey !== currentMonth);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (!archivedMonths.length) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>monthList.innerHTML = `</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="empty-state"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>No previous month archives yet. Once a new month begins, the earlier month will remain visible here.</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>`;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>return;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>monthList.innerHTML = archivedMonths.map(monthKey =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const monthData = repository.months[monthKey];</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const total = getTotalForMonth(monthData);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>return `</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="month-item" onclick="selectHistoryMonth('${monthKey}')" id="month-${monthKey}"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;strong&gt;${getMonthLabel(monthKey)}&lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;small&gt;${total} verified stories archived&lt;/small&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>`;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}).join("");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function selectHistoryMonth(monthKey) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById("historySelect").value = monthKey;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>renderSelectedHistory();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function renderSelectedHistory() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const selectedMonth = document.getElementById("historySelect").value;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const historyTitle = document.getElementById("historyTitle");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const historyChart = document.getElementById("historyChart");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const historyNote = document.getElementById("historyNote");</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.querySelectorAll(".month-item").forEach(item =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>item.classList.remove("active");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (!selectedMonth || !repository.months[selectedMonth]) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>historyTitle.textContent = "Select a month to view archive";</p>
+<p class="p1"><span class="Apple-converted-space">        </span>historyChart.innerHTML = "";</p>
+<p class="p1"><span class="Apple-converted-space">        </span>historyNote.textContent =</p>
+<p class="p1"><span class="Apple-converted-space">          </span>"When a new month begins, the previous month remains saved here automatically.";</p>
+<p class="p1"><span class="Apple-converted-space">        </span>return;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>const selectedItem = document.getElementById(`month-${selectedMonth}`);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (selectedItem) selectedItem.classList.add("active");</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>const monthData = repository.months[selectedMonth];</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const total = getTotalForMonth(monthData);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>historyTitle.textContent = `${getMonthLabel(selectedMonth)} Performance`;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>renderBarChart("historyChart", monthData);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>historyNote.innerHTML = `</p>
+<p class="p1"><span class="Apple-converted-space">        </span>Total stories in ${getMonthLabel(selectedMonth)}: &lt;strong&gt;${total}&lt;/strong&gt;&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>Alvin Thomas: &lt;strong&gt;${monthData.alvin.length}&lt;/strong&gt;,</p>
+<p class="p1"><span class="Apple-converted-space">        </span>Mayank Singh: &lt;strong&gt;${monthData.mayank.length}&lt;/strong&gt;,</p>
+<p class="p1"><span class="Apple-converted-space">        </span>Oommen John: &lt;strong&gt;${monthData.oommen.length}&lt;/strong&gt;.</p>
+<p class="p1"><span class="Apple-converted-space">      </span>`;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function refreshDashboard() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>ensureCurrentMonthExists();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>saveRepository();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>renderCards();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>updateSummary();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>renderHistoryRepository();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>renderSelectedHistory();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function updateDateTime() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const now = new Date();</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById("todayDate").textContent = now.toLocaleDateString("en-GB", {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>weekday: "long",</p>
+<p class="p1"><span class="Apple-converted-space">        </span>day: "2-digit",</p>
+<p class="p1"><span class="Apple-converted-space">        </span>month: "long",</p>
+<p class="p1"><span class="Apple-converted-space">        </span>year: "numeric"</p>
+<p class="p1"><span class="Apple-converted-space">      </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById("liveTime").textContent = now.toLocaleTimeString("en-GB", {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>hour: "2-digit",</p>
+<p class="p1"><span class="Apple-converted-space">        </span>minute: "2-digit",</p>
+<p class="p1"><span class="Apple-converted-space">        </span>second: "2-digit"</p>
+<p class="p1"><span class="Apple-converted-space">      </span>});</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>setInterval(updateDateTime, 1000);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>updateDateTime();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>refreshDashboard();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
